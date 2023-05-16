@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.poi:poi:5.2.3'
+    testImplementation(
+            "org.apache.commons:commons-lang3:3.0",
+            "org.apache.poi:poi:3.12",
+            "org.apache.poi:poi-ooxml:3.12",
+            "com.fasterxml:aalto-xml:1.0.0",
+            "com.codeborne:selenide:5.20.3",
+            "com.codeborne:pdf-test:1.6.1",
+            "com.codeborne:xls-test:1.4.3",
+            "com.opencsv:opencsv:5.3",
+            "org.assertj:assertj-core:3.19.0",
+            "org.apache.poi:poi:5.2.2",
+            "org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.1"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
